@@ -17,34 +17,41 @@ $-css-vars-map: (
     .table {
         background-color: transparent;
     }
+
     thead {
         tr {
             border-width: 0;
             box-shadow: none;
+
             th {
                 display: none;
             }
+
             .checkbox-cell {
                 display: block;
                 width: 100%;
-                border: 0;
                 margin-bottom: 1rem;
                 text-align: right;
+                border: 0;
             }
         }
     }
+
     tfoot {
         th {
             display: inherit;
             border: 0; // Disable is-bordered
         }
     }
+
     tr {
         position: relative;
         display: block;
         max-width: 100%;
+
         // Card style — Cannot extend inside media query
-        box-shadow: 0 2px 3px rgba(var(--scheme-invert-rgb), 0.1), 0 0 0 1px rgba(var(--scheme-invert-rgb), 0.1);
+        box-shadow: 0 2px 3px rgb(var(--scheme-invert-rgb) 0.1), 0 0 0 1px rgb(var(--scheme-invert-rgb) 0.1);
+
         td {
             display: inherit;
             border: 0; // Disable is-bordered
@@ -52,32 +59,38 @@ $-css-vars-map: (
                 border-bottom: 0;
             }
         }
+
         &:not(:last-child) {
             margin-bottom: 1rem;
         }
+
         // Disables is-*
         &:not([class*="is-"]) {
             background: var(--table-background-color);
+
             &:hover {
                 background-color: var(--table-background-color);
             }
         }
+
         &.detail {
             margin-top: -1rem;
         }
     }
+
     tr:not(.detail, .is-empty, .table-footer) {
         td {
             display: flex;
-            width: auto;
             justify-content: space-between;
-            border-bottom: 1px solid var(--background);
+            width: auto;
             text-align: right;
+            border-bottom: 1px solid var(--background);
+
             &::before {
                 padding-right: 0.5em;
-                content: attr(data-label);
                 font-weight: var(--weight-semibold);
                 text-align: left;
+                content: attr(data-label);
             }
         }
     }
@@ -87,9 +100,11 @@ $-css-vars-map: (
     .table {
         margin-bottom: 0;
     }
+
     &:not(:last-child) {
         margin-bottom: 1.5rem;
     }
+
     @include bulma-utilities.touch {
         overflow-x: auto;
     }
@@ -106,9 +121,11 @@ $-css-vars-map: (
 
     .icon {
         transition: transform calc(var(--speed) * 2) var(--easing), opacity var(--speed) var(--easing);
+
         &.is-desc {
             transform: rotate(180deg);
         }
+
         &.is-expanded {
             transform: rotate(90deg);
         }
@@ -120,40 +137,49 @@ $-css-vars-map: (
 
     .table {
         width: 100%;
+        border-collapse: separate;
         border: 1px solid transparent;
         border-radius: var(--radius);
-        border-collapse: separate;
+
         th {
             font-weight: var(--weight-semibold);
+
             .th-wrap {
                 display: flex;
                 align-items: center;
+
                 .icon {
                     margin-right: 0;
                     margin-left: 0.5rem;
                     font-size: 1rem;
                 }
+
                 &.is-numeric {
-                    width: 95%;
                     flex-direction: row-reverse;
+                    width: 95%;
                     text-align: right;
+
                     .icon {
                         margin-right: 0.5rem;
                         margin-left: 0;
                     }
                 }
+
                 &.is-centered {
                     justify-content: center;
                     text-align: center;
                 }
             }
+
             &.is-current-sort {
-                border-color: var(--grey);
                 font-weight: var(--weight-bold);
+                border-color: var(--grey);
             }
+
             &.is-sortable:hover {
                 border-color: var(--grey);
             }
+
             &.is-sortable,
             &.is-sortable .th-wrap {
                 cursor: pointer;
@@ -162,28 +188,32 @@ $-css-vars-map: (
                     position: absolute;
                 }
             }
+
             .sort-icon, .multi-sort-cancel-icon {
                 position: absolute;
                 bottom: 50%;
                 left: 100%;
                 transform: translateY(50%);
             }
+
             .multi-sort-cancel-icon {
                 margin-left: 10px;
             }
+
             &.is-sticky {
                 position: sticky;
-                z-index: 3 !important;
                 left: 0;
+                z-index: 3 !important;
                 background: var(--table-head-background-color);
             }
         }
+
         tr {
             &.is-selected {
                 .checkbox input {
                     &:checked + .check {
-                        background: var(--table-row-active-color); // url(functions.checkmark(bulma-table.$table-row-active-background-color)) no-repeat center center;
                         color: bulma-table.$table-row-active-background-color;
+                        background: var(--table-row-active-color); // url(functions.checkmark(bulma-table.$table-row-active-background-color)) no-repeat center center;
 
                         &::after {
                             position: absolute;
@@ -191,39 +221,50 @@ $-css-vars-map: (
                             content: "✓"
                         }
                     }
+
                     + .check {
                         border-color: var(--table-row-active-color);
                     }
                 }
             }
+
             &.is-empty:hover {
                 background-color: transparent;
             }
         }
+
         .chevron-cell {
             vertical-align: middle;
+
             > a {
                 color: var(--input-arrow-color) !important;
             }
         }
+
         .checkbox-cell {
             width: 40px;
+
             .checkbox {
                 vertical-align: middle;
+
                 .check {
                     transition: none;
                 }
             }
         }
+
         tr.detail {
             background: var(--scheme-main-bis);
             box-shadow: inset 0 1px 3px var(--grey-lighter);
+
             .detail-container {
                 padding: 1rem;
             }
         }
+
         &:focus {
             --focus-box-shadow-color: #{bulma-utilities.bulmaVarOpacity(link, 0.25)};
+
             border-color: var(--link);
             box-shadow: 0 0 0 0.125em var(--focus-box-shadow-color);
         }
@@ -232,16 +273,16 @@ $-css-vars-map: (
         &.is-bordered {
             th.is-current-sort,
             th.is-sortable:hover {
-                border-color: var(--grey-lighter);
                 background: var(--background);
+                border-color: var(--grey-lighter);
             }
         }
 
         td {
             &.is-sticky {
                 position: sticky;
-                z-index: 1;
                 left: 0;
+                z-index: 1;
                 background: var(--table-background-color);
             }
         }
@@ -267,29 +308,34 @@ $-css-vars-map: (
 
     .table-wrapper {
         position: relative;
+
         &.has-sticky-header {
             height: var(--table-sticky-header-height);
             overflow-y: auto;
+
             &.has-mobile-cards {
                 @include bulma-utilities.mobile {
                     height: initial !important;
                     overflow-y: initial !important;
                 }
             }
+
             tr:first-child {
                 th {
                     position: sticky;
-                    z-index: 2;
                     top: 0;
+                    z-index: 2;
                     background: var(--table-background-color);
                 }
             }
         }
+
         &.has-mobile-cards {
             @include bulma-utilities.mobile {
                 @include table-cards
             }
         }
+
         &.is-card-list {
             @include table-cards
         }

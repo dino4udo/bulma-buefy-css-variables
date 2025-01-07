@@ -6,24 +6,29 @@
     .pagination-previous {
         padding-right: var(--pagination-nav-padding-right);
         padding-left: var(--pagination-nav-padding-left);
+
         &.is-disabled {
+            pointer-events: none;
             cursor: not-allowed;
             opacity: 0.5;
-            pointer-events: none;
         }
     }
+
     &.is-simple {
         justify-content: normal;
+
         &.is-centered {
             justify-content: center;
         }
+
         &.is-right {
             justify-content: flex-end;
         }
     }
+
     .is-current {
-        cursor: not-allowed;
         pointer-events: none;
+        cursor: not-allowed;
     }
 }
 
@@ -38,27 +43,35 @@
 @include bulma-utilities.tablet {
     .pagination.has-input {
         @include paginationPositions("list", "input", "previous", "next");
+
         &.is-centered {
             @include paginationPositions("previous", "list", "input", "next");
+
             &.is-input-right {
                 @include paginationPositions("previous", "list", "next", "input");
             }
+
             &.is-input-left {
                 @include paginationPositions("input", "previous", "list", "next");
             }
         }
+
         &.is-right {
             @include paginationPositions("previous", "next", "input", "list");
+
             &.is-input-right {
                 @include paginationPositions("previous", "next", "list", "input");
             }
+
             &.is-input-left {
                 @include paginationPositions("input", "previous", "next", "list");
             }
         }
+
         &.is-input-right {
             @include paginationPositions("list", "previous", "next", "input");
         }
+
         &.is-input-left {
             @include paginationPositions("input", "list", "previous", "next");
         }

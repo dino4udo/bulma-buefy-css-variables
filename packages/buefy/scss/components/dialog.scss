@@ -4,31 +4,38 @@
     .modal-card {
         width: auto;
         max-width: 460px;
+
         .modal-card-head {
             font-size: var(--size-5);
             font-weight: var(--weight-semibold);
         }
+
         .modal-card-body {
             .field {
                 margin-top: 16px;
             }
+
             &.is-titleless {
                 border-top-left-radius: var(--card-radius);
                 border-top-right-radius: var(--card-radius);
             }
         }
+
         .modal-card-foot {
             justify-content: flex-end;
+
             .button {
                 display: inline; // Fix Safari centering
                 min-width: 5em;
                 font-weight: var(--weight-semibold);
             }
         }
+
         @include bulma-utilities.tablet {
             min-width: 320px;
         }
     }
+
     &.is-small {
         .modal-card,
         .input,
@@ -36,6 +43,7 @@
             @include bulma-utilities.control-small;
         }
     }
+
     &.is-medium {
         .modal-card,
         .input,
@@ -43,6 +51,7 @@
             @include bulma-utilities.control-medium;
         }
     }
+
     &.is-large {
         .modal-card,
         .input,
@@ -50,6 +59,7 @@
             @include bulma-utilities.control-large;
         }
     }
+
     &.has-custom-container {
         position: absolute;
     }

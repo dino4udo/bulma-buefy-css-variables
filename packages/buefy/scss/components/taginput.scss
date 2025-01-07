@@ -15,23 +15,24 @@ $-css-vars-map: (
 .taginput {
     .taginput-container {
         display: flex;
+
         &.is-focusable {
             @extend %input-textarea;
-            height: auto;
+
             flex-wrap: wrap;
             align-items: center;
             justify-content: flex-start;
-            padding-top: calc(0.275em - 1px);
-            padding-right: 0;
-            padding-bottom: 0;
-            padding-left: 0;
+            height: auto;
+            padding: calc(0.275em - 1px) 0 0;
             cursor: text;
         }
+
         &:not(.is-focusable) {
-            height: auto;
             flex-wrap: wrap;
             align-items: center;
             justify-content: flex-start;
+            height: auto;
+
             @include bulma-utilities.control-sizes;
         }
 
@@ -41,10 +42,12 @@ $-css-vars-map: (
             margin-bottom: calc(0.275em - 1px);
             margin-left: 0.275rem;
             font-size: 0.9em;
+
             .tag {
                 height: var(--taginput-height);
                 margin-bottom: 0;
                 font-size: 0.9em;
+
                 &.is-delete {
                     width: var(--taginput-height);
                 }
@@ -54,21 +57,25 @@ $-css-vars-map: (
         .autocomplete {
             position: static;
             flex: 1;
+
             input {
                 min-width: 8em;
                 height: var(--taginput-height);
                 padding-top: 0;
                 padding-bottom: 0;
-                border: none;
                 margin-bottom: calc(0.275em - 1px);
+                border: none;
                 box-shadow: none;
+
                 &:focus {
                     box-shadow: none !important;
                 }
             }
+
             .icon {
                 height: var(--taginput-height);
             }
+
             > .control.is-loading::after {
                 top: 0.375em;
             }

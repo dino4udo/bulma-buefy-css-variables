@@ -1,11 +1,9 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/shared" as bulma-form;
 
 $radio-active-background-color: var(--primary) !default;
 $radio-size: 1.25em !default;
-
 $radio-colors: bulma-form.$form-colors !default;
 
 // Map Local variables
@@ -21,35 +19,42 @@ $-css-vars-map: (
 .b-radio {
     &.radio {
         @extend %unselectable;
+
         display: inline-flex;
         align-items: center;
         outline: none;
+
         &:not(.button) {
             margin-right: 0.5em;
+
             & + .radio:last-child {
                 margin-right: 0;
             }
         }
+
         // reset Bulma
         & + .radio {
             margin-left: 0;
         }
-        input[type=radio] {
+
+        input[type="radio"] {
             position: absolute;
-            z-index: -1;
             left: 0;
-            opacity: 0;
+            z-index: -1;
             outline: none;
+            opacity: 0;
+
             + .check {
                 position: relative;
                 display: flex;
+                flex-shrink: 0;
                 width: var(--radio-size);
                 height: var(--radio-size);
-                flex-shrink: 0;
+                cursor: pointer;
                 border: 2px solid var(--grey);
                 border-radius: 50%;
-                cursor: pointer;
                 transition: background calc(var(--speed) * 2) var(--easing);
+
                 &::before {
                     position: absolute;
                     bottom: 50%;
@@ -57,14 +62,15 @@ $-css-vars-map: (
                     display: flex;
                     width: var(--radio-size);
                     height: var(--radio-size);
-                    border-radius: 50%;
                     margin-bottom: calc(-0.5 * var(--radio-size));
                     margin-left: calc(-0.5 * var(--radio-size));
-                    background-color: var(--radio-active-background-color);
                     content: "";
-                    transform: scale(0);
+                    background-color: var(--radio-active-background-color);
+                    border-radius: 50%;
                     transition: transform calc(var(--speed) * 2) var(--easing);
+                    transform: scale(0);
                 }
+
                 @each $name, $pair in $radio-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name}:before {
@@ -72,22 +78,27 @@ $-css-vars-map: (
                     }
                 }
             }
+
             &:checked + .check {
                 border-color: var(--radio-active-background-color);
+
                 @each $name, $pair in $radio-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
                         border-color: var(--#{$name});
                     }
                 }
+
                 &::before {
                     transform: scale(.5);
                 }
             }
+
             &:focus {
                 + .check {
                     box-shadow: 0 0 0.5em var(--grey-light);
                 }
+
                 &:checked + .check {
                     box-shadow: 0 0 0.5em rgba(var(--scheme-invert-rgb), 0.1);
 
@@ -95,15 +106,18 @@ $-css-vars-map: (
                         $color: list.nth($pair, 1);
                         &.is-#{$name} {
                             --focus-box-shadow-color: #{bulma-utilities.bulmaVarOpacity($name, 0.8)};
+
                             box-shadow: 0 0 0.5em var(--focus-box-shadow-color);
                         }
                     }
                 }
             }
         }
+
         .control-label {
             padding-left: var(--control-padding-horizontal);
         }
+
         &.button {
             display: flex;
 
@@ -111,12 +125,15 @@ $-css-vars-map: (
                 z-index: 1;
             }
         }
+
         &[disabled] {
             opacity: 0.5;
         }
+
         &:hover {
-            input[type=radio]:not(:disabled) + .check {
+            input[type="radio"]:not(:disabled) + .check {
                 border-color: var(--radio-active-background-color);
+
                 @each $name, $pair in $radio-colors {
                     $color: list.nth($pair, 1);
                     &.is-#{$name} {
@@ -125,6 +142,7 @@ $-css-vars-map: (
                 }
             }
         }
+
         @include bulma-utilities.control-sizes;
     }
 }

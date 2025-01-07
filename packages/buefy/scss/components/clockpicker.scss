@@ -1,5 +1,4 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/form/shared" as bulma-form;
 
@@ -20,32 +19,32 @@ $-css-vars-map: (
     // must be known for use in the Vue component for calculations
     // to determine  number and hand positioning/size.
     $transition-swing: cubic-bezier(.25, .8, .50, 1);
-
     $time-font-size: 60px;
     $period-font-size: 1rem;
     $number-font-size: 18px;
-
     $indicator-size: 40px;
     $hand-endpoint-size: 12px;
-
     $padding-outer: 12px;
     $padding-inner: 5px;
 
     .card-header {
-        background-color: var(--primary);
         color: var(--primary-invert);
+        background-color: var(--primary);
     }
+
     .b-clockpicker-face {
         &::after {
             background-color: var(--primary);
         }
+
         &-hand {
+            background-color: var(--primary);
             border-color: var(--primary);
-            background-color: var(--primary);
         }
+
         &-number.active {
-            background-color: var(--primary);
             color: var(--primary-invert);
+            background-color: var(--primary);
         }
     }
 
@@ -55,21 +54,24 @@ $-css-vars-map: (
         $color-invert: list.nth($pair, 2);
         &.is-#{$name} {
             .card-header {
-                background-color: var(--#{$name});
                 // color: $inverse;
                 color: var(--#{$name}-invert);
+                background-color: var(--#{$name});
             }
+
             .b-clockpicker-face {
                 &::after {
                     background-color: var(--#{$name});
                 }
+
                 &-hand {
+                    background-color: var(--#{$name});
                     border-color: var(--#{$name});
-                    background-color: var(--#{$name});
                 }
+
                 &-number.active {
-                    background-color: var(--#{$name});
                     color: var(--#{$name}-invert);
+                    background-color: var(--#{$name});
                 }
             }
         }
@@ -78,12 +80,15 @@ $-css-vars-map: (
     .dropdown-menu {
         min-width: 0;
     }
+
     .dropdown,
     .dropdown-trigger {
         width: 100%;
+
         .input[readonly] {
-            box-shadow: var(--input-shadow);
             cursor: pointer;
+            box-shadow: var(--input-shadow);
+
             &:focus,
             &.is-focused,
             &:active,
@@ -93,10 +98,12 @@ $-css-vars-map: (
             }
         }
     }
+
     .dropdown-item {
         padding: 0;
         font-size: inherit;
     }
+
     .dropdown-content {
         padding-top: 0;
         padding-bottom: 0;
@@ -118,6 +125,7 @@ $-css-vars-map: (
     &-btn {
         cursor: pointer;
         opacity: 0.6;
+
         &:hover,
         &.active {
             opacity: 1;
@@ -141,12 +149,13 @@ $-css-vars-map: (
     &-header {
         display: flex;
         justify-content: flex-end;
-        color: inherit;
         line-height: 1;
+        color: inherit;
 
         // time display in the title for inline display
         .b-clockpicker-time {
             white-space: nowrap;
+
             span {
                 height: $time-font-size;
                 font-size: $time-font-size;
@@ -167,12 +176,13 @@ $-css-vars-map: (
 
         .b-clockpicker-btn {
             padding: 0 8px;
-            border-radius: var(--radius-rounded);
             margin-bottom: 2px;
+            border-radius: var(--radius-rounded);
+
             &:hover,
             &.active {
-                background-color: var(--primary);
                 color: white;
+                background-color: var(--primary);
             }
         }
 
@@ -193,29 +203,32 @@ $-css-vars-map: (
         .b-clockpicker-face {
             position: relative;
             display: flex;
-            width: 100%;
-            height: 100%;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: var(--grey-lighter);
+
             // Outer border circle of clock
             border-radius: 50%;
-            background-color: var(--grey-lighter);
 
             &::after {
                 position: absolute;
-                z-index: 10;
                 top: 50%;
                 left: 50%;
+                z-index: 10;
                 width: $hand-endpoint-size;
                 height: $hand-endpoint-size;
+                content: "";
+
                 // Dot in center
                 border-radius: 50%;
-                content: "";
                 transform: translate(-50%, -50%);
             }
 
             &-outer-ring {
                 @extend %unselectable;
+
                 position: relative;
                 width: calc(100% - #{$indicator-size + ($padding-inner * 2)});
                 height: calc(100% - #{$indicator-size + ($padding-inner * 2)});
@@ -228,14 +241,15 @@ $-css-vars-map: (
                 top: calc(50% - #{$indicator-size} * 0.5);
                 left: calc(50% - #{$indicator-size} * 0.5);
                 display: flex;
-                width: $indicator-size;
-                height: $indicator-size;
                 align-items: center;
                 justify-content: center;
-                border-radius: 100%;
-                cursor: default;
+                width: $indicator-size;
+                height: $indicator-size;
                 font-size: $number-font-size;
                 text-align: center;
+                cursor: default;
+                border-radius: 100%;
+
                 @extend %unselectable;
 
                 > span {
@@ -249,8 +263,8 @@ $-css-vars-map: (
                     left: 50%;
                     width: $indicator-size;
                     height: $indicator-size;
-                    border-radius: 100%;
                     content: "";
+                    border-radius: 100%;
                     transform: translate(-50%, -50%);
                 }
 
@@ -260,21 +274,20 @@ $-css-vars-map: (
                 }
 
                 &.disabled {
-                    opacity: .25;
                     pointer-events: none;
+                    opacity: .25;
                 }
             }
 
             &-hand {
                 position: absolute;
-                z-index: 1;
                 bottom: 50%;
                 left: calc(50% - 1px);
+                z-index: 1;
                 width: 2px;
                 height: calc(50% - #{$hand-endpoint-size * 0.5});
-
-                transform-origin: center bottom;
                 transition: .3s $transition-swing;
+                transform-origin: center bottom;
                 will-change: transform;
 
                 &::before {
@@ -283,21 +296,23 @@ $-css-vars-map: (
                     left: 50%;
                     width: $hand-endpoint-size;
                     height: $hand-endpoint-size;
-                    border-width: 2px;
-                    border-style: solid;
-                    border-color: inherit;
-                    border-radius: 100%;
-                    background: transparent;
                     content: "";
+                    background: transparent;
+                    border-color: inherit;
+                    border-style: solid;
+                    border-width: 2px;
+                    border-radius: 100%;
                     transform: translate(-50%, -50%);
                 }
             }
         }
     }
+
     &-footer {
         display: block;
         padding: $padding-outer;
     }
+
     // Sizes
     @include bulma-utilities.control-sizes;
 }

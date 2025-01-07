@@ -24,39 +24,49 @@ $-css-vars-map: (
 .rate {
     display: flex;
     align-items: center;
+
     &:not(:last-child) {
         margin-bottom: calc(var(--block-spacing) * 0.5);
     }
+
     &.is-spaced .rate-item:not(:last-child) {
         margin-right: var(--rate-spaced);
     }
+
     &.is-disabled .rate-item {
         cursor: initial;
+
         &:hover {
             transform: none;
         }
     }
+
     &.is-rtl {
         .rate-item {
             order: 1;
         }
+
         .rate-text {
             margin-right: var(--rate-text-spaced);
             margin-left: 0;
         }
     }
+
     .rate-item {
         position: relative;
         display: inline-flex;
         cursor: pointer;
         transition: all 0.3s;
+
         &:hover {
             transform: scale(1.1);
         }
+
         &.set-on .icon,
         &.set-half .is-half {
             color: var(--rate-color-active);
         }
+
         &.set-half .is-half {
             position: absolute;
             top: 0;
@@ -64,19 +74,23 @@ $-css-vars-map: (
             overflow: hidden;
         }
     }
+
     .icon {
         width: inherit;
-        color: var(--rate-color);
         line-height: 1;
+        color: var(--rate-color);
         pointer-events: none;
     }
+
     .is-half > i {
         position: absolute;
         left: 0;
     }
+
     .rate-text {
         margin-left: var(--rate-text-spaced);
         font-size: calc(var(--rate-text-font-size) / 1.25);
+
         @include bulma-utilities.control-sizes(rate-text-font-size);
     }
 }

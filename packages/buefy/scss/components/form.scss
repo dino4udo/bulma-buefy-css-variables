@@ -17,33 +17,38 @@ $-css-vars-map: (
     &.is-grouped {
         .field {
             flex-shrink: 0;
+
             &:not(:last-child) {
                 margin-right: 0.75rem;
             }
+
             &.is-expanded {
                 flex-grow: 1;
                 flex-shrink: 1;
             }
         }
     }
+
     // Nested control addons (for Autocomplete and Datepicker)
     &.has-addons .control {
         &:first-child .control {
             .button,
             .input,
             .select select {
-                border-bottom-left-radius: var(--input-radius);
                 border-top-left-radius: var(--input-radius);
+                border-bottom-left-radius: var(--input-radius);
             }
         }
+
         &:last-child .control {
             .button,
             .input,
             .select select {
-                border-bottom-right-radius: var(--input-radius);
                 border-top-right-radius: var(--input-radius);
+                border-bottom-right-radius: var(--input-radius);
             }
         }
+
         .control {
             .button,
             .input,
@@ -52,6 +57,7 @@ $-css-vars-map: (
             }
         }
     }
+
     // Fix for number input with addons
     &.has-addons {
         .b-numberinput {
@@ -60,22 +66,24 @@ $-css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        border-bottom-left-radius: 0;
                         border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
                     }
                 }
             }
+
             &:not(:last-child) {
                 .control:last-child {
                     .button,
                     .input,
                     .select select {
-                        border-bottom-right-radius: 0;
                         border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
                     }
                 }
             }
         }
+
         &.b-numberinput {
             .control {
                 margin-right: unset;
@@ -91,17 +99,18 @@ $-css-vars-map: (
 
         .label {
             position: absolute;
-            z-index: 5;
             left: 1em;
-            overflow: hidden;
+            z-index: 5;
             max-width: calc(100% - 2em);
-            background-color: transparent;
+            overflow: hidden;
             font-size: calc(var(--field-label-font-size) * 0.75);
             text-overflow: ellipsis;
             white-space: nowrap;
+            background-color: transparent;
 
             @include bulma-utilities.control-sizes(field-label-font-size);
         }
+
         .taginput .counter {
             float: none;
             text-align: right;
@@ -113,8 +122,8 @@ $-css-vars-map: (
                     .button,
                     .input,
                     .select select {
-                        border-bottom-left-radius: var(--input-radius);
                         border-top-left-radius: var(--input-radius);
+                        border-bottom-left-radius: var(--input-radius);
                     }
                 }
             }
@@ -126,18 +135,20 @@ $-css-vars-map: (
             top: -0.775em;
             padding-right: 0.125em;
             padding-left: 0.125em;
+
             &::before {
                 position: absolute;
-                z-index: -1;
                 top: 0.775em;
                 right: 0;
                 left: 0;
+                z-index: -1;
                 display: block;
                 height: 0.375em;
-                background-color: var(--input-background-color);
                 content: "";
+                background-color: var(--input-background-color);
             }
         }
+
         .input,
         .textarea,
         .select
@@ -146,13 +157,16 @@ $-css-vars-map: (
                 box-shadow: none;
             }
         }
+
         .taginput .taginput-container {
             padding-top: 0.475em;
+
             &.is-focused {
                 box-shadow: none;
             }
         }
     }
+
     &.is-floating-in-label {
         --field-floating-indent: calc(var(--floating-in-height) * 0.5 - (var(--size-large) * 0.75) * 0.5);
 
@@ -167,6 +181,7 @@ $-css-vars-map: (
                         padding-bottom: 1px;
                     }
                 }
+
                 &:not(.datepicker, .timepicker, .taginput) {
                     .input,
                     .textarea,
@@ -175,33 +190,40 @@ $-css-vars-map: (
                         padding-top: var(--field-floating-indent);
                         padding-bottom: 1px;
                     }
+
                     .select:not([multiple]) {
                         height: var(--floating-in-height);
+
                         &.is-loading {
                             &::after {
                                 margin-top: var(--field-floating-indent);
                             }
                         }
+
                         &::after {
                             margin-top: 1px;
                         }
                     }
                 }
+
                 &.taginput {
                     .taginput-container {
                         // 0.275em - 1px _taginput.scss
                         padding-top: calc(var(--field-floating-indent) + (0.275em - 1px));
                     }
                 }
+
                 &:not(.taginput) {
                     .is-left.field,
                     .is-right.icon {
                         height: var(--floating-in-height);
                     }
+
                     .is-left.icon {
                         padding-top: var(--field-floating-indent);
                     }
                 }
+
                 &.is-loading::after {
                     margin-top: var(--field-floating-indent);
                 }
@@ -217,6 +239,7 @@ $-css-vars-map: (
                             padding-top: var(--field-floating-indent);
                             padding-bottom: 1px;
                         }
+
                         .input,
                         .textarea,
                         select,
@@ -239,41 +262,49 @@ $-css-vars-map: (
             }
         }
     }
+
     &.is-floating-label, &.is-floating-in-label {
         &.has-numberinput {
             .label {
                 margin-left: calc(var(--size-normal) * 3);
             }
+
             &.has-numberinput-is-small {
                 .label {
                     margin-left: calc(var(--size-small) * 3);
                 }
             }
+
             &.has-numberinput-is-medium {
                 .label {
                     margin-left: calc(var(--size-medium) * 3);
                 }
             }
+
             &.has-numberinput-is-large {
                 .label {
                     margin-left: calc(var(--size-large) * 3);
                 }
             }
         }
+
         &.has-numberinput-compact {
             .label {
                 margin-left: calc(var(--size-normal) * 2.25);
             }
+
             &.has-numberinput-is-small {
                 .label {
                     margin-left: calc(var(--size-small) * 2.25);
                 }
             }
+
             &.has-numberinput-is-medium {
                 .label {
                     margin-left: calc(var(--size-medium) * 2.25);
                 }
             }
+
             &.has-numberinput-is-large {
                 .label {
                     margin-left: calc(var(--size-large) * 2.25);
@@ -281,6 +312,7 @@ $-css-vars-map: (
             }
         }
     }
+
     &.is-grouped-right, &.has-addons-right {
         &.is-floating-in-label {
             .label {
@@ -288,6 +320,7 @@ $-css-vars-map: (
                 left: calc(3.25em + 2em);
             }
         }
+
         &.is-floating-label {
             .label {
                 position: relative;
@@ -299,15 +332,17 @@ $-css-vars-map: (
 
 .control {
     .help.counter {
-        margin-left: 0.5em;
         float: right;
+        margin-left: 0.5em;
     }
+
     .icon {
         &.is-clickable {
-            cursor: pointer;
             pointer-events: auto;
+            cursor: pointer;
         }
     }
+
     // fix Bulma 0.8.2
     &.is-loading::after {
         top: calc(50% - (1em * 0.5));

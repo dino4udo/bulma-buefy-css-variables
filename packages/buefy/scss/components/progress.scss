@@ -1,5 +1,4 @@
 @use "sass:list";
-
 @use "../../../bulma/sass/utilities" as bulma-utilities;
 @use "../../../bulma/sass/elements/progress" as bulma-progress;
 
@@ -28,12 +27,12 @@ $-css-vars-map: (
         position: absolute;
         top: 0;
         left: 50%;
-        color: var(--progress-value-color);
         font-size: calc(var(--progress-value-size) / 1.5);
         font-weight: var(--weight-bold);
         line-height: var(--progress-value-size);
-        transform: translateX(-50%);
+        color: var(--progress-value-color);
         white-space: nowrap;
+        transform: translateX(-50%);
     }
 
     .progress, .progress-bar {
@@ -68,16 +67,17 @@ $-css-vars-map: (
 
     &.is-not-native {
         @extend .progress;
-        border-radius: var(--progress-border-radius);
-        background-color: var(--progress-bar-background-color);
+
         white-space: nowrap;
+        background-color: var(--progress-bar-background-color);
+        border-radius: var(--progress-border-radius);
 
         .progress-bar {
             position: relative;
             display: inline-block;
             height: 100%;
-            background-color: var(--progress-value-background-color);
             vertical-align: top;
+            background-color: var(--progress-value-background-color);
 
             .progress-value {
                 color: var(--progress-value-color);
@@ -88,6 +88,7 @@ $-css-vars-map: (
                 $color-invert: list.nth($pair, 2);
                 &.is-#{$name} {
                     background-color: var(--#{$name});
+
                     .progress-value {
                         color: var(--#{$name}-invert);
                     }

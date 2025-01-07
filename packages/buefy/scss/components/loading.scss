@@ -7,17 +7,21 @@ $loading-full-page-icon-size: 5em !default;
 
 .loading-overlay {
     @extend %overlay;
+
     z-index: 29;
     display: none;
-    overflow: hidden;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+
     &.is-active {
         display: flex
     }
+
     &.is-full-page {
         position: fixed;
         z-index: 999;
+
         .loading-icon {
             &::after {
                 top: calc(50% - #{$loading-full-page-icon-size * 0.5});
@@ -27,15 +31,20 @@ $loading-full-page-icon-size: 5em !default;
             }
         }
     }
+
     .loading-background {
         @extend %overlay;
+
         background:$loading-background-legacy;
         background:$loading-background;
     }
+
     .loading-icon {
         position: relative;
+
         &::after {
             @extend %loader;
+
             position: absolute;
             top: calc(50% - #{$loading-icon-size * 0.5});
             left: calc(50% - #{$loading-icon-size * 0.5});
